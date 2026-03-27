@@ -4,7 +4,7 @@ import streamlit as st
 #CLASE POO
 #--------------------------
 
-class Client:
+class Cliente:
     def __init__(self, nombre, edad, saldo):
         self.nombre = nombre
         self.edad = edad
@@ -39,7 +39,7 @@ saldo = st.number_input("Saldo", min_value= 0.0)
 if st.button("Crear Cliente"):
     
     #Secuencia
-    cliente = Cliente (nombre, edad, saldo)
+    cliente = Cliente(nombre, edad, saldo)
 
     st.success("Clientre creado correctamente")
 
