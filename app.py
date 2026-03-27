@@ -34,7 +34,7 @@ st.write("Ingrese los datos del cliente")
 
 nombre = st.text_input("Nombre")
 edad = st.number_input("Edad", min_value= 0)
-saldo = st.number_imput("Saldo", min_value= 0.0)
+saldo = st.number_input("Saldo", min_value= 0.0)
 
 if st.button("Crear Cliente"):
     
