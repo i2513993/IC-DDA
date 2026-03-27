@@ -39,7 +39,7 @@ saldo = st.number_input("Saldo", min_value= 0.0)
 if st.button("Crear Cliente"):
     
     #Secuencia
-    cliente = cliente(nombre, edad, saldo)
+    cliente = Cliente (nombre, edad, saldo)
 
     st.success("Clientre creado correctamente")
 
