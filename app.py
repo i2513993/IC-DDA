@@ -14,10 +14,9 @@ if st.button("Crear Cliente"):
 
     try:
                 #Secuencia
-        cliente = Cliente(nombre, edad, saldo)
+        cliente = crear_cliente(nombre, edad, saldo)
 
-        st.success("Clientre creado correctamente")
-
+        st.success("Cliente creado correctamente")
         st.write("### Informacion de cliente")
         st.write(cliente.mostrar_info())
     
