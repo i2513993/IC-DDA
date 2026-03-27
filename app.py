@@ -44,4 +44,4 @@ if st.button("Crear Cliente"):
     st.success("Clientre creado correctamente")
 
     st.write("### Informacion de cliente")
-    st.write(cliente.mostrar_info()))
+    st.write(cliente.mostrar_info())
