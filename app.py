@@ -11,13 +11,13 @@ class Client:
         self.saldo = saldo
     
     #GETTERS (EMCAPSULAMIENTO)
-    def get_nombre(self)
+    def get_nombre(self):
         return self.__nombre
 
-    def get_edad(self)
+    def get_edad(self):
         return self.__edad
 
-    def get_saldo(self)
+    def get_saldo(self):
         return self.__saldo
 
 
