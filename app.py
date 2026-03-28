@@ -5,7 +5,7 @@ from services.cliente_services import crear_cliente
 # CONFIGURACIÓN DE LA PÁGINA
 st.set_page_config(page_title="Demo POO", layout="centered")
 
-st.title("🚀 DEMO POO - CIENCIA DE DATOS")
+st.title("DEMO POO - CIENCIA DE DATOS")
 st.write("Complete el formulario para registrar un nuevo cliente en el sistema.")
 
 # ENTRADAS DE USUARIO
@@ -24,10 +24,10 @@ if st.button("Registrar Cliente"):
         cliente_obj, mensaje_servicio = crear_cliente(nombre, edad, saldo)
 
         # Si todo sale bien:
-        st.success("✅ ¡Proceso completado!")
+        st.success("¡Proceso completado!")
         st.info(mensaje_servicio)
     
-        st.subheader("📋 Ficha del Cliente")
+        st.subheader("Ficha del Cliente")
         st.code(cliente_obj.mostrar_info())
 
         # Uso de métodos de la clase
@@ -43,7 +43,7 @@ if st.button("Registrar Cliente"):
 
     except ValueError as e:
         # Aquí atrapamos los "raise ValueError" de los servicios
-        st.warning(f"⚠️ Error de validación: {e}")
+        st.warning(f"Error de validación: {e}")
     except Exception as e:
         # Error genérico por si algo falla en el servidor
-        st.error(f"❌ Error inesperado: {e}")
+        st.error(f"Error inesperado: {e}")
