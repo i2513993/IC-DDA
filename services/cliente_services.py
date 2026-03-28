@@ -4,21 +4,21 @@ def crear_cliente(nombre, edad, saldo):
     
     #Validaciones de nombre
     if nombre == "":
-        raise ValueError ("El nombre no puede estar vacio")
+        raise ValueError("El nombre no puede estar vacío")  
     
     #Validaciones de edad
     if edad < 18:
-        raise ValueError ("El cliente debe ser mayor de edad")
+        raise ValueError("El cliente debe ser mayor de edad")
     
     #Validaciones de saldo
     if saldo < 0:
-        raise ValueError ("El saldo es invalido")
+        raise ValueError("El saldo es inválido")
 
-    cliente = Cliente (nombre, edad, saldo)
+    cliente = Cliente(nombre, edad, saldo)
 
     if saldo == 0:
         mensaje = "Cliente sin saldo"
     else:
         mensaje = "Cliente con saldo"
     
-     return cliente, mensaje
+    return cliente, mensaje
