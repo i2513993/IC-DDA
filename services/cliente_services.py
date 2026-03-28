@@ -4,6 +4,9 @@ def crear_cliente(nombre, edad, saldo):
     # Validaciones de nombre
     if nombre.strip() == "":
         raise ValueError("El nombre no puede estar vacío")
+
+    if not nombre.replace(" ", "").isalpha():
+        raise ValueError("El nombre solo puede contener letras")
     
     # Validaciones de edad
     if edad < 18:
