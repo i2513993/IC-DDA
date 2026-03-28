@@ -3,7 +3,7 @@ import streamlit as st
 #--------------------------
 #CLASE POO                  
 
-class Cliente:
+class cliente:
     def __init__(self, nombre, edad, saldo):
         self.nombre = nombre
         self.edad = edad
