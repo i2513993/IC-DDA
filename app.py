@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from models.cliente import Cliente
-from services.cliente_service import crear_cliente
+from services.cliente_services import crear_cliente
 
 
 st.title("Demo POO - Ciencia de Datos")
