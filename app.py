@@ -26,7 +26,7 @@ if st.button("Crear Cliente"):
             st.white("### Clasificación")
             st.write(cliente.clasificar_cliente())
 
-        if hasattr (cliente,"Es mayor de edad")
+        if hasattr (cliente,"es_mayor_de_edad"):
             if cliente.es_mayor_de_edad():
                 st.success("Es mayor de edad")
             else:
