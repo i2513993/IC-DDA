@@ -1,5 +1,5 @@
 import streamlit as st
-from models.cliente import Cliente
+from models.cliente import cliente
 from services.cliente_services import crear_cliente
 
 
@@ -17,8 +17,9 @@ if st.button("Crear Cliente"):
         cliente, mensaje = crear_cliente(nombre, edad, saldo)
 
         st.success("Cliente creado correctamente")
-
+        
         st.info (mensaje)
+    
         st.write("### Informacion de cliente")
         st.write(cliente.mostrar_info())
 
@@ -31,5 +32,7 @@ if st.button("Crear Cliente"):
                 st.success("Es mayor de edad")
             else:
                 st.warning("Es menor de edad")
+
+
     except Exception as e:
         st.error(str(e))
