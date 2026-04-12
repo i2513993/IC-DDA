@@ -11,6 +11,17 @@ st.write("Ingrese los datos del cliente:")
 if 'clientes' not in st.session_state:
     st.session_state.clientes = []
 
+def mostrar_tabla(clientes):
+    df = pd.DataFrame(clientes)
+    st.dataframe(df)
+
+def calcular_promedio (clientes):
+    suma = 0
+    for c in clientes:
+        suma += c['Saldo']
+    promedio = suma / len(clientes)
+    return promedio
+
 # Inputs
 nombre = st.text_input("Nombre")
 edad = st.number_input("Edad", min_value = 0)
@@ -39,8 +50,8 @@ if st.button("Crear Cliente"):
 if len(st.session_state.clientes) > 0:
 
     st.write("### Tabla de Clientes")
-    df = pd.DataFrame(st.session_state.clientes)  # ← línea 42: defines df
-    st.dataframe(df)                               # ← línea 43: ahora sí funciona
+    df = pd.DataFrame(st.session_state.clientes) 
+    st.dataframe(df)                              
 
     #FOR  --  Recorrer clientes
 
