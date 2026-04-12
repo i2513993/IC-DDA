@@ -19,7 +19,7 @@ with st.form("form_cliente"):
     # Inputs
     nombre = st.text_input("Nombre")
     edad = st.number_input("Edad", min_value = 0)
-    saldo = st.number_input("Saldo", min_value = 0.0)
+    saldo = st.number_input("Saldo")
 
     submit = st.form_submit_button("Crear Cliente")
 
