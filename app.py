@@ -5,7 +5,6 @@ from utils.cliente_utils import (
     mostrar_tabla,
     mostrar_clientes,
     mostrar_analisis
-
 )
 
 st.title("Demo POO - Ciencia de Datos")
