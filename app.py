@@ -39,8 +39,8 @@ if st.button("Crear Cliente"):
 if len(st.session_state.clientes) > 0:
 
     st.write("### Tabla de Clientes")
-    st.dataframe(pd.DataFrame(st.session_state.clientes))
-    st.dataframe (df)
+    df = pd.DataFrame(st.session_state.clientes)  # ← línea 42: defines df
+    st.dataframe(df)                               # ← línea 43: ahora sí funciona
 
     #FOR  --  Recorrer clientes
 
