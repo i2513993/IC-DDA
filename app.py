@@ -22,30 +22,38 @@ def calcular_promedio (clientes):
     promedio = suma / len(clientes)
     return promedio
 
-# Inputs
-nombre = st.text_input("Nombre")
-edad = st.number_input("Edad", min_value = 0)
-saldo = st.number_input("Saldo", min_value = 0.0)
 
-# Botón
-if st.button("Crear Cliente"):
+with st.form("form_cliente"):
+    # Inputs
+    nombre = st.text_input("Nombre")
+    edad = st.number_input("Edad", min_value = 0)
+    saldo = st.number_input("Saldo", min_value = 0.0)
 
-    try:
-        # Crea Cliente + Mensaje
-        cliente, mensaje = crear_cliente(nombre, edad, saldo)
+    submit = st.form_submit_button("Crear Cliente")
 
-        st.success("Cliente creado correctamente")
-        st.info(mensaje)
+    if submitted:
+        try:
+            if nombre == "":
+                st.warning("Debe ingresar un nombre")   
+            else:
+                # Crea Cliente + Mensaje
+                cliente, mensaje = crear_cliente(nombre, edad, saldo)
 
-        #Guardar en Memoria
-        st.session_state.clientes.append({
-            "Nombre": cliente.get_nombre(),
-            "Edad": cliente.get_edad(),
-            "Saldo": cliente.get_saldo()
-        })
+                st.success("Cliente creado correctamente")
+                st.info(mensaje)
 
-    except Exception as e:
-        st.error(str(e))
+            #Guardar en Memoria
+                st.session_state.clientes.append({
+                "Nombre": cliente.get_nombre(),
+                "Edad": cliente.get_edad(),
+                "Saldo": cliente.get_saldo()
+            })
+
+
+        except ValueError as e:
+            st.warning(str(e))
+        except Exception as e:
+            st.error(str(e))
 
 if len(st.session_state.clientes) > 0:
 
