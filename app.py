@@ -31,7 +31,7 @@ with st.form("form_cliente"):
 
     submit = st.form_submit_button("Crear Cliente")
 
-    if submitted:
+    if submit:
         try:
             if nombre == "":
                 st.warning("Debe ingresar un nombre")   
