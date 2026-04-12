@@ -78,16 +78,11 @@ if len(st.session_state.clientes) > 0:
 
     # Analisis total de clientes
 
-    contador = 0
-    for c in st.session_state.clientes:
-        contador += 1
+    contador = len(st.session_state.clientes)
     st.write(f"Total de clientes: {contador}")
 
     #Promedio de saldo
-    suma = 0
-    for c in st.session_state.clientes:
-        suma += c['Saldo']
-    promedio = suma / contador
+    promedio = calcular_promedio(st.session_state.clientes)
     st.write(f"Promedio de saldo: S/ {round(promedio, 2)}")
 
 else:
