@@ -1,5 +1,6 @@
+# cliente_services.py
 from models.cliente import Cliente
-from services.supabase_client import insertar_cliente
+from supabase_client import insertar_cliente  # ← sin "services."
 
 def crear_cliente(nombre, edad, saldo):
 
