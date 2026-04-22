@@ -1,6 +1,6 @@
 import streamlit as st
-from services.cliente_service import crear_cliente
-from services.supabase_service import insertar_cliente
+from services.cliente_services import crear_cliente
+from services.supabase_client import insertar_cliente
 
 def procesar_cliente(nombre, edad, saldo):
 
