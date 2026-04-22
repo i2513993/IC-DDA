@@ -1,41 +1,32 @@
+import pandas as pd 
 import streamlit as st
-from services.cliente_service import crear_cliente
-from services.supabase_service import insertar_cliente
 
-def procesar_cliente(nombre, edad, saldo):
 
-    try:
-        if nombre == "":
-            st.warning("Ingrese un nombre válido")
-            return
+def mostrar_tabla(clientes):
+    df = pd.DataFrame(clientes)
+    st.dataframe(df)
 
-        if saldo < 0:
-            st.warning("El saldo no puede ser negativo")
-            return
+def mostrar_clientes(clientes):
+    st.write("### Lista de clientes (for)")
+    for c in st.session_state.clientes:
+        st.write(f"{c['Nombre']} - Edad: {c['Edad']}")
 
-        cliente, mensaje = crear_cliente(nombre, edad, saldo)
+    st.write("### Recorrido con While")
+    i = 0
+    while i < len(st.session_state.clientes):
+        c = st.session_state.clientes[i]
+        st.write(f"{c['Nombre']} - Edad: {c['Edad']}")
+        i += 1
 
-        st.success("Cliente creado correctamente")
-        st.info(mensaje)
+def calcular_promedio(clientes):
+    suma = 0
+    for c in clientes:
+        suma += c["Saldo"]
+    return suma / len(clientes)
 
-        cliente_dict = {
-            "nombre": cliente.get_nombre(),
-            "edad": cliente.get_edad(),
-            "saldo": cliente.get_saldo()
-        }
+def mostrar_analisis(clientes):
+    contador = len (st.session_state.clientes)
+    st.write(f"Total de clientes: {contador}")
 
-        # Guardar en memoria
-        st.session_state.clientes.append({
-            "Nombre": cliente.get_nombre(),
-            "Edad": cliente.get_edad(),
-            "Saldo": cliente.get_saldo()
-        })
-
-        # Guardar en Supabase
-        insertar_cliente(cliente_dict)
-
-    except ValueError as e:
-        st.warning(str(e))
-
-    except Exception as e:
-        st.error("Error inesperado: " + str(e))
+    promedio = calcular_promedio(st.session_state.clientes)
+    st.write(f"Promedio de saldo: S/ {round(promedio, 2)}")
