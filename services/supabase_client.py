@@ -27,3 +27,27 @@ def obtener_clientes():
         .execute()
     )
     return response.data
+
+def actualizar_cliente(id, cliente_dict):
+    supabase = get_supabase_client()
+    response = (
+        supabase
+        .schema("bronze")
+        .table("clientes")
+        .update(cliente_dict)
+        .eq("id", id)
+        .execute()
+    )
+    return response
+
+def eliminar_cliente(id):
+    supabase = get_supabase_client()
+    response = (
+        supabase
+        .schema("bronze")
+        .table("clientes")
+        .delete()
+        .eq("id", id)
+        .execute()
+    )
+    return response
