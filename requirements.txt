@@ -59,4 +59,4 @@ tzdata==2025.3
 urllib3==2.6.3
 watchdog==6.0.0
 wcwidth==0.6.0
-supabase==2.4.0
+supabase==2.3.0
