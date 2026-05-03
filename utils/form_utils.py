@@ -1,18 +1,5 @@
 import streamlit as st
 from services.cliente_services import crear_cliente
-from services.supabase_client import insertar_cliente
-
-def procesar_cliente(nombre, edad, saldo):
-
-    try:
-        if nombre == "":
-            st.warning("Ingrese un nombre válido")
-            return
-
-        if saldo < 0:
-            st.warning("El saldo no puede ser negativo")
-import streamlit as st
-from services.cliente_services import crear_cliente
 from services.supabase_client import insertar_cliente, actualizar_cliente
 
 def procesar_cliente(nombre, edad, saldo):
